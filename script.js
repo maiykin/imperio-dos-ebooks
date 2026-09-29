@@ -64,7 +64,10 @@ async function sair(){
 }
 
 async function loginComGoogle(){
-  await supabaseClient.auth.signInWithOAuth({ provider: "google" });
+  await supabaseClient.auth.signInWithOAuth({
+    provider: "google",
+    options: { redirectTo: window.location.origin + window.location.pathname }
+  });
 }
 
 function abrirPerfil(){
